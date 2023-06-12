@@ -7,7 +7,8 @@
     "@babbage/react-prompt": "^0.2.10",
     "babbage-kvstore": "^1.1.5",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.12.1"
   },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
