@@ -1,30 +1,49 @@
 import React from 'react'
+import useStyles from './register-style'
+import Button from '@mui/material/Button'
+import { Grid, Typography, TextField, Container, Box} from '@mui/material'
 
 const Register = () => {
+    const classes = useStyles()
+
     return (
-        <div className='Register'>
-            <h1>REGISTER</h1>
-            <h4>Start your journey today</h4>
-            <div className='registerSection'>
-                <form className='registerForm'>
-                    <label>VIN Number</label>
-                    <input type='text' className='textBox' name='vinNumber' />
-                    <label>Make</label>
-                    <input type='text' className='textBox' name='make' />
-                    <label>Model</label>
-                    <input type='text' className='textBox' name='model' />
-                    <label>Year</label>
-                    <input type='text' className='textBox' name='year' />
-                    <label>Color</label>
-                    <input type='text' className='textBox' name='color' />
-                    <label>First Name</label>
-                    <input type='text' className='textBox' name='firstName' />
-                    <label>Last Name</label>
-                    <input type='text' className='textBox' name='lastName' />
-                    <input type='button' name='submitRegister' value='Register' className='button'/>
-                </form>
-            </div>
-            <div className='background' />
+        <div className={classes.background}>
+            <Container maxWidth='lg' className={classes.container} >
+                <Grid container justify='center' direction='column'>
+                    <Grid item align='center'>
+                        <Typography variant='h3'>Register</Typography>
+                    </Grid>
+                    <Grid item align='center' className={classes.body1}>
+                        <Typography variant='body1'>Start your journey today</Typography>
+                    </Grid>
+                    <Grid item container spacing={3} align='center' className={classes.inputField}>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='VIN Number' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='Make' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='Model' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='Year' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='Color' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='First Name' variant='outlined' color='primary'/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='Last Name' variant='outlined' color='primary'/>
+                        </Grid>
+                    </Grid>
+                    <Grid item align='center' className={classes.button}>
+                        <Button variant='contained' color='secondary'>Register</Button>
+                    </Grid>
+                </Grid>
+            </Container>       
         </div>
     )
 }

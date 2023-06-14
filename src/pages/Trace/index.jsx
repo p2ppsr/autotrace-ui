@@ -1,24 +1,29 @@
 import React from 'react'
+import useStyles from './trace-style'
+import Button from '@mui/material/Button'
+import { Grid, Typography, TextField, Container} from '@mui/material'
 
 const Trace = () => {
+    const classes = useStyles()
+
     return (
-        <div className='Trace'>
-            <h1>Trace</h1>
-            <h4>We leave no stone unturned in revealing the complete vehicle story.</h4>
-            <div className='form'>
-                <label>VIN Number</label>
-                <input type='text' className='textBox' name='vinNumber' />
-                <input type='button' name='submitSearch' value='Search' className='button'/>
-
-                {/*<label>Make</label>
-                <label>Model</label>    
-                <label>Year</label>
-                <label>Color</label>
-                <label>First Name</label>
-                <label>Last Name</label>*/}
-
-            </div>
-            <div className='background' />
+        <div className={classes.background}>
+            <Container maxWidth='lg' className={classes.container} >
+                <Grid container justify='center' direction='column'>
+                    <Grid item align='center'>
+                        <Typography variant='h3'>Trace</Typography>
+                    </Grid>
+                    <Grid item align='center' className={classes.body1}>
+                        <Typography variant='body1'>We leave no stone unturned in revealing the complete vehicle story</Typography>
+                    </Grid>
+                    <Grid item align='center' className={classes.inputField}>
+                        <TextField id='outlined-basic' label='VIN Number' variant='outlined' color='primary'/>
+                    </Grid>
+                    <Grid item align='center' className={classes.button}>
+                        <Button variant='contained' color='secondary'>Search</Button>
+                    </Grid>
+                </Grid>
+            </Container>
         </div>
     )
 }

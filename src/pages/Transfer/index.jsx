@@ -1,19 +1,32 @@
 import React from 'react'
+import useStyles from './transfer-style'
+import Button from '@mui/material/Button'
+import { Grid, Typography, TextField, Container} from '@mui/material'
 
 const Transfer = () => {
-    return (
-        <div className='Transfer'>
-            <h1>Transfer</h1>
-            <h4>From one buyer to the next</h4>
-            <div className='form'>
-                <label>VIN Number</label>
-                <input type='text' className='textBox' name='vinNumber' />
-                <label>New Owner</label>
-                <input type='text' className='textBox' name='recipient' />
-                <input type='button' name='submitTransfer' value='Search' className='button'/>
-            </div>
+    const classes = useStyles()
 
-            <div className='background' />
+    return (
+        <div className={classes.background}>
+            <Container maxWidth='lg' className={classes.container} >
+                <Grid container justify='center' direction='column'>
+                    <Grid item align='center'>
+                        <Typography variant='h3'>Transfer</Typography>
+                    </Grid>
+                    <Grid item align='center' className={classes.body1}>
+                        <Typography variant='body1'>From one buyer to the next</Typography>
+                    </Grid>
+                    <Grid item align='center' className={classes.inputField}>
+                        <TextField id='outlined-basic' label='VIN Number' variant='outlined' color='primary'/>
+                    </Grid>
+                    <Grid item align='center' className={classes.inputField}>
+                        <TextField id='outlined-basic' label='New Owner' variant='outlined' color='primary'/>
+                    </Grid>
+                    <Grid item align='center' className={classes.button}>
+                        <Button variant='contained' color='secondary'>Transfer</Button>
+                    </Grid>
+                </Grid>
+            </Container>
         </div>
     )
 }

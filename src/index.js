@@ -15,7 +15,7 @@ ReactDOM.render(
       '/autotraceBG.png'
     ]}
   >*/
-  <App />,
+    <App />,
   /*</BabbagePrompt>,*/
   document.getElementById('root')
 )
