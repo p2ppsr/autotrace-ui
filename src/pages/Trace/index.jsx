@@ -8,16 +8,18 @@ const Trace = () => {
 
     return (
         <div className={classes.background}>
-            <Container maxWidth='lg' className={classes.container} >
+            <Container maxWidth='lg'>
                 <Grid container justify='center' direction='column'>
-                    <Grid item align='center'>
+                    <Grid item align='center' className={classes.heading}>
                         <Typography variant='h3'>Trace</Typography>
                     </Grid>
-                    <Grid item align='center' className={classes.body1}>
-                        <Typography variant='body1'>We leave no stone unturned in revealing the complete vehicle story</Typography>
+                    <Grid item align='center' className={classes.text}>
+                        <Typography variant='h6'>We leave no stone unturned in revealing the complete vehicle story</Typography>
                     </Grid>
-                    <Grid item align='center' className={classes.inputField}>
-                        <TextField id='outlined-basic' label='VIN Number' variant='outlined' color='primary'/>
+                    <Grid item container spacing={3} align='center' direction='column' className={classes.inputField}>
+                        <Grid item>
+                            <TextField id='outlined-basic' label='VIN Number' variant='outlined' color='primary'/>
+                        </Grid>
                     </Grid>
                     <Grid item align='center' className={classes.button}>
                         <Button variant='contained' color='secondary'>Search</Button>

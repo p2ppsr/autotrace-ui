@@ -1,11 +1,11 @@
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
-    container: {
-        paddingTop: '20vh'
+    heading: {
+        paddingTop: '15vh'
     },
-    body1: {
-        marginTop: '3vh'
+    text: {
+        marginTop: '0.5vh'
     },
     inputField: {
         marginTop: '2.5vh'
@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '2vh'
     },
     background: {
-        backgroundImage: 'url(/images/traceBKG.png)',
+        backgroundImage: 'url(/images/registerBKG.png)',
         backgroundOrigin: 'border-box',
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
-        paddingTop: '80px',
         minHeight: '100vh',
-        backgroundPosition: 'top'
+        backgroundPosition: 'bottom center',
+        backgroundSize: 'cover'
     }
 }));
 

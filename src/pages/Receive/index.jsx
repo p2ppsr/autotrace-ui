@@ -7,9 +7,9 @@ const Receive = () => {
 
     return (
         <div className={classes.background}>
-             <Container maxWidth='lg' className={classes.container} >
+             <Container maxWidth='lg'>
                 <Grid container justify='center' direction='column'>
-                    <Grid item align='center'>
+                    <Grid item align='center' className={classes.heading}>
                         <Typography variant='h3'>Receive</Typography>
                     </Grid>
                 </Grid>

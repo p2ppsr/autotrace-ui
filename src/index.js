@@ -10,9 +10,9 @@ ReactDOM.render(
     author='Project Babbage'
     authorUrl='https://projectbabbage.com'
     description='Unveil the Hidden Story of Every Vehicle Powered by Project Babbage.'
-    appIcon='/autotraceIcon.png'
+    appIcon='/images/autoTraceLogo.png'
     appImages={[
-      '/autotraceBG.png'
+      '/images/autoTraceLogo.png'
     ]}
   >*/
     <App />,
