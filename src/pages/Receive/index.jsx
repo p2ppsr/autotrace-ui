@@ -10,7 +10,7 @@ const Receive = () => {
              <Container maxWidth='lg'>
                 <Grid container justify='center' direction='column'>
                     <Grid item align='center' className={classes.heading}>
-                        <Typography variant='h3'>Receive</Typography>
+                        <Typography variant='h3' sx={{fontWeight: 'bold'}}>Receive</Typography>
                     </Grid>
                 </Grid>
             </Container>

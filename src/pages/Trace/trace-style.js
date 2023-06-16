@@ -21,7 +21,11 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '100vh',
         backgroundPosition: 'bottom center',
         backgroundSize: 'cover'
-    }
+    },
+    solidBackground: {
+        backgroundColor: 'white',
+        opacity: '0.75',
+    },
 }));
 
 export default useStyles;

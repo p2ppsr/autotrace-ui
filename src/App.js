@@ -27,7 +27,7 @@ const App = () => {
       <CssBaseline>
         <Router>
           <div>
-            <AppBar position='relative'>
+            <AppBar position='relative' elevation='0'>
               <Header />
             </AppBar>
             <div>
