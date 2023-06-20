@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '100vh',
         backgroundPosition: 'bottom center',
         backgroundSize: 'cover'
-    }
+    },
 }));
 
 export default useStyles;

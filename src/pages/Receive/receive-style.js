@@ -7,6 +7,12 @@ const useStyles = makeStyles((theme) => ({
     text: {
         marginTop: '0.5vh'
     },
+    inputField: {
+        marginTop: '2.5vh'
+    },
+    button: {
+        marginTop: '2vh'
+    },
     background: {
         backgroundImage: 'url(/images/registerBKG.png)',
         backgroundOrigin: 'border-box',
