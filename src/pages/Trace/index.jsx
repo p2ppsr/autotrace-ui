@@ -3,6 +3,7 @@ import useStyles from './trace-style'
 import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails, LinearProgress, Alert, AlertTitle, Collapse, } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { AutoTrace } from 'babbage-autotrace'
+import Renderer from '../Renderer'
 
 const autoTrace = new AutoTrace()
 
@@ -68,9 +69,7 @@ const Trace = () => {
                     <Typography sx={{ color: 'text.secondary' }}> {event.eventType} - {event.description}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography>
-                      {event.document}
-                    </Typography>
+                    <Renderer content={event.document} />
                   </AccordionDetails>
                 </Accordion>
               </Grid>

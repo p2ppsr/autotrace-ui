@@ -4,6 +4,7 @@ import { Grid, Typography, Container, TextField, Accordion, AccordionSummary, Ac
 import Button from '@mui/material/Button'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { AutoTrace } from 'babbage-autotrace'
+import Renderer from '../Renderer'
 
 const autoTrace = new AutoTrace()
 
@@ -30,8 +31,9 @@ const Receive = () => {
         setCollapsed(true)
       }
     } catch (error) {
+      console.error(error)
       setAlertSeverity('error')
-      setMessage('Something went wrong')
+      setMessage(error.message || 'Something went wrong')
       setCollapsed(true)
     } finally {
       setLoading(false)
@@ -75,9 +77,7 @@ const Receive = () => {
                     <Typography sx={{ color: 'text.secondary' }}> {event.eventType} - {event.description}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography>
-                      {event.document}
-                    </Typography>
+                    <Renderer content={event.document} />
                   </AccordionDetails>
                 </Accordion>
               </Grid>
