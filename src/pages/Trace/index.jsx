@@ -1,68 +1,85 @@
 import React, { useState } from 'react'
 import useStyles from './trace-style'
-import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails, LinearProgress, Alert, AlertTitle, Collapse, } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { AutoTrace } from 'babbage-autotrace'
 
+const autoTrace = new AutoTrace()
+
 const Trace = () => {
-    const classes = useStyles()
-    const [VIN, setVIN] = useState('')
-    const [events, setEvents] = useState([])
-    const autoTrace = new AutoTrace()
+  const classes = useStyles()
+  const [VIN, setVIN] = useState('')
+  const [events, setEvents] = useState([])
+  const [alertSeverity, setAlertSeverity] = useState('info')
+  const [message, setMessage] = useState('')
+  const [collapsed, setCollapsed] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-    const traceVehicle = async () => {
-        const vehicleHistory = await autoTrace.trace(VIN)
-        setEvents(vehicleHistory.events)
+  const traceVehicle = async () => {
+    setLoading(true)
+    try {
+      const vehicleHistory = await autoTrace.trace(VIN)
+      setEvents(vehicleHistory.events)
+      if (vehicleHistory) {
+        setAlertSeverity('success')
+        setMessage('Success')
+        setCollapsed(true)
+      }
+    } catch (error) {
+      setAlertSeverity('error')
+      setMessage('Something went wrong')
+      setCollapsed(true)
+    } finally {
+      setLoading(false)
     }
+  }
 
-    return (
-        <div>
-            <div className={classes.background}>
-                <Container maxWidth='lg'>
-                    <Grid container justify='center' direction='column'>
-                        <Grid item align='center' className={classes.heading}>
-                            <Typography variant='h3' sx={{ fontWeight: 'bold' }}>Trace</Typography>
-                        </Grid>
-                        <Grid item align='center' className={classes.text}>
-                            <Typography variant='h6'>We leave no stone unturned in revealing the complete vehicle story</Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid container justify='center' direction='column'>
-                        <Grid item container spacing={3} align='center' direction='column' className={classes.inputField}>
-                            <Grid item>
-                                <TextField label='VIN Number' variant='filled' color='primary' value={VIN} onChange={(e) => setVIN(e.target.value)} />
-                            </Grid>
-                        </Grid>
-                        <Grid item align='center' className={classes.button}>
-                            <Button variant='contained' color='secondary' onClick={traceVehicle}>Search</Button>
-                        </Grid>
-                    </Grid>
-                    <Grid container justify='center' direction='column'>
-                        {events.map((event, index) => (
-                            <div key={index}>
-                                <Grid item align='center' className={classes.button}>
-                                    <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls='panel1bh-content'
-                                            id='panel1bh-header'
-                                        >
-                                            <Typography sx={{ color: 'text.secondary' }}> {event.eventType} - {event.description}</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Typography>
-                                                {event.document}
-                                            </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                </Grid>
-                            </div>
-                        ))}
-                    </Grid>
-                </Container>
+  return (
+    <div className={classes.background}>
+      <Typography variant='h3' color='black' align='center' sx={{ fontWeight: 'bold' }}>TRACE</Typography>
+      <Typography variant='h6' color='black' align='center'>We leave no stone unturned in revealing the complete vehicle story</Typography>
+      <Container maxWidth='lg' className={classes.content_wrap}>
+        <Collapse in={collapsed} onClick={() => { setCollapsed(false) }}>
+          <Alert severity={alertSeverity} variant='filled' className={classes.alert}>
+            <AlertTitle>{message}</AlertTitle>
+          </Alert>
+        </Collapse>
+        <Grid container justify='center' direction='column'>
+          <Grid item container spacing={3} align='center' direction='column' className={classes.inputField}>
+            <Grid item>
+              <TextField disabled={loading} label='VIN Number' variant='filled' color='secondary' value={VIN} onChange={(e) => setVIN(e.target.value)} />
+            </Grid>
+          </Grid>
+          <Grid item align='center' className={classes.button}>
+            {loading && <LinearProgress color='secondary' className={classes.progress} />}
+            <Button disabled={loading} variant='contained' color='secondary' onClick={traceVehicle}>{loading ? 'Loading...' : 'Search'}</Button>
+          </Grid>
+        </Grid>
+        <Grid container justify='center' direction='column'>
+          {events.map((event, index) => (
+            <div key={index}>
+              <Grid item align='center' className={classes.button}>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls='panel1bh-content'
+                    id='panel1bh-header'
+                  >
+                    <Typography sx={{ color: 'text.secondary' }}> {event.eventType} - {event.description}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      {event.document}
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              </Grid>
             </div>
-        </div>
-    )
+          ))}
+        </Grid>
+      </Container>
+    </div>
+  )
 }
 
 export default Trace
