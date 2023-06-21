@@ -32,7 +32,7 @@ const Home = () => {
             </div>
             <div className={classes.solidBackground}>
                 <Container>
-                    <Grid container xs={12} spacing={3}>
+                    <Grid container spacing={3}>
                         <Grid item align='left' xs={5} className={classes.text}>
                             <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold' }}>Blockchain Powered</Typography>
                         </Grid>

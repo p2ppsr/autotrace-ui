@@ -21,11 +21,8 @@
     justify-content: left;
 }
 
-.item:hover {
-    color: #F1CD5F;
-}
-
 .item:focus,
+.item:hover,
 .item:active {
     color: #DB7640;
 }

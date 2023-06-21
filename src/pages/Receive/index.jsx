@@ -20,9 +20,9 @@ const Receive = () => {
         try {
             let receiveStatus = false
             receiveStatus = await autoTrace.receive(VIN, sender)
-            const vehicleHistory = await autoTrace.trace(VIN)
-            setEvents(vehicleHistory.events)
             if (receiveStatus == undefined) {
+                const vehicleHistory = await autoTrace.trace(VIN)
+                setEvents(vehicleHistory.events)
                 setAlertSeverity('success')
                 setMessage('Success')
                 setCollapsed(true)
