@@ -11,15 +11,11 @@ const Header = () => {
         <div className={classes.header}>
             <AppBar position='relative' elevation={0} sx={{ backgroundColor: 'white', minwidth: '100vw' }}>
                 <Toolbar>
-                    <Container maxWidth='lg'>
-                        <Grid container xs={12} direction='row'>
-                            <Grid item align='left' xs={3}>
-                                <Card elevation={0}>
-                                    <CardMedia component='img' height='auto' image='/images/autoTraceLogo.png' />
-                                </Card>
-                            </Grid>
-                            <Grid item container xs={3}></Grid>
-                            <Grid item container xs={6} align='right'>
+                        <div className={classes.nav_wrap}>
+                            <Card elevation={0} className={classes.logo}>
+                                <CardMedia component='img' height='auto' image='/images/autoTraceLogo.png' />
+                            </Card>
+                            <Grid container align='right' className={classes.links_wrap}>
                                 <Grid item>
                                     <NavLink className={classes.item} to='/'>Home</NavLink>
                                 </Grid>
@@ -42,8 +38,7 @@ const Header = () => {
                                     <NavLink className={classes.item} to='/RepairResponse'>RepairResponse</NavLink>
                                 </Grid>
                             </Grid>
-                        </Grid>
-                    </Container>
+                        </div>
                 </Toolbar>
             </AppBar>
         </div >
