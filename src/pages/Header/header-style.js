@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
         width: '9.89em',
         marginBottom: '0.5em',
         marginTop: '0.5em',
+        backgroundColor: 'white !important',
         [theme.breakpoints.down('lg')]: {
             width: '7em'
         }

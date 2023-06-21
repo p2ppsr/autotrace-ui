@@ -1,8 +1,22 @@
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme) => ({
+    content_wrap: {
+        backgroundColor: '#313131',
+        borderRadius: '0.5em',
+        padding: '1.5em',
+        boxSizing: 'border-box',
+        color: 'white',
+        marginTop: '1.5em'
+    },
+    progress: {
+        margin: '0.5em'
+    },
+    alert: {
+        marginBottom: '0.5em'
+    },
     heading: {
-        paddingTop: '15vh'
+        // paddingTop: '15vh'
     },
     text: {
         marginTop: '0.5vh'
@@ -11,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '2.5vh'
     },
     button: {
-        marginTop: '2vh'
+        paddingTop: '1.5em'
     },
     background: {
         backgroundImage: 'url(/images/registerBKG.png)',
@@ -20,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
         backgroundPosition: 'bottom center',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        paddingTop: '9em'
     },
 }));
 
