@@ -23,9 +23,12 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     logo: {
-        width: '6em',
+        width: '9.89em',
         marginBottom: '0.5em',
         marginTop: '0.5em',
+        [theme.breakpoints.down('lg')]: {
+            width: '7em'
+        }
     },
     links_wrap: {
         alignItems: 'center',

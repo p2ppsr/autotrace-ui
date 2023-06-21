@@ -14,8 +14,8 @@ const Home = () => {
     return (
         <div>
             <div className={classes.background}>
-                <Container maxWidth='lg'>
-                    <Grid container justify='center' direction='column'>
+                <Container maxWidth='lg' className={classes.content_wrap}>
+                    <Grid container justify='center' direction='column' className={classes.column_guide}>
                         <Grid item align='center' className={classes.heading}>
                             <Typography variant='h3' color='whitesmoke' sx={{ fontWeight: 'bold' }}>Unveil the Hidden Story of Every Vehicle</Typography>
                         </Grid>

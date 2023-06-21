@@ -12,9 +12,11 @@ const Header = () => {
             <AppBar position='relative' elevation={0} sx={{ backgroundColor: 'white', minwidth: '100vw' }}>
                 <Toolbar>
                         <div className={classes.nav_wrap}>
-                            <Card elevation={0} className={classes.logo}>
+                        <Card elevation={0} className={classes.logo}>
+                            <NavLink to='/'>
                                 <CardMedia component='img' height='auto' image='/images/autoTraceLogo.png' />
-                            </Card>
+                                </NavLink>
+                        </Card>
                             <Grid container align='right' className={classes.links_wrap}>
                                 <Grid item>
                                     <NavLink className={classes.item} to='/'>Home</NavLink>
