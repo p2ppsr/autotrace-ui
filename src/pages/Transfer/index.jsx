@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useStyles from './transfer-style'
 import Button from '@mui/material/Button'
 import { Grid, Typography, TextField, Container, Alert, AlertTitle, Collapse, LinearProgress } from '@mui/material'
-import { AutoTrace, ATEvent } from 'babbage-autotrace'
+import { AutoTrace, ATEvent } from '@cwi/autotrace'
 
 const autoTrace = new AutoTrace()
 
@@ -50,8 +50,8 @@ const Transfer = () => {
   return (
     <div className={classes.background}>
       <Typography variant='h3' color='black' align='center' sx={{ fontWeight: 'bold' }}>TRANSFER</Typography>
-      <Typography variant='h6' color='black' align='center' >From one buyer to the next</Typography>
-      <Container maxWidth='lg' className={classes.content_wrap} >
+      <Typography variant='h6' color='black' align='center'>From one buyer to the next</Typography>
+      <Container maxWidth='lg' className={classes.content_wrap}>
         <Collapse in={collapsed} onClick={() => { setCollapsed(false) }}>
           <Alert severity={alertSeverity} variant='filled' className={classes.alert}>
             <AlertTitle>{message}</AlertTitle>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useStyles from './request-style'
 import Button from '@mui/material/Button'
 import { Grid, Typography, TextField, Container, Alert, AlertTitle, Collapse, LinearProgress } from '@mui/material'
-import { AutoTrace, ATEvent } from 'babbage-autotrace'
+import { AutoTrace, ATEvent } from '@cwi/autotrace'
 
 const autoTrace = new AutoTrace()
 

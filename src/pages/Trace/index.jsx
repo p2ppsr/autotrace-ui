@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useStyles from './trace-style'
-import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails, LinearProgress, Alert, AlertTitle, Collapse, } from '@mui/material'
+import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails, LinearProgress, Alert, AlertTitle, Collapse } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { AutoTrace } from 'babbage-autotrace'
 import Renderer from '../Renderer'

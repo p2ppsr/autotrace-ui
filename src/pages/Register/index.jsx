@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useStyles from './register-style'
 import { Grid, Typography, Button, TextField, Container, Alert, AlertTitle, Collapse, LinearProgress } from '@mui/material'
-import { AutoTrace, ATEvent } from 'babbage-autotrace'
+import { AutoTrace, ATEvent } from '@cwi/autotrace'
 
 const autoTrace = new AutoTrace()
 

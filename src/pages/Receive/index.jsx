@@ -3,7 +3,7 @@ import useStyles from './receive-style'
 import { Grid, Typography, Container, TextField, Accordion, AccordionSummary, AccordionDetails, Alert, AlertTitle, Collapse, LinearProgress } from '@mui/material'
 import Button from '@mui/material/Button'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { AutoTrace } from 'babbage-autotrace'
+import { AutoTrace } from '@cwi/autotrace'
 import Renderer from '../Renderer'
 
 const autoTrace = new AutoTrace()
