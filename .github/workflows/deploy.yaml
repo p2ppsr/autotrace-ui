@@ -6,7 +6,6 @@ on:
 
 env:
   CURRENT_BRANCH: ${{ github.ref_name }}
-  CWI_NPM_TOKEN: ${{ secrets.CWI_NPM_TOKEN }}
   GCR_HOST: us.gcr.io
   GOOGLE_PROJECT_ID: babbage-private
   GCR_IMAGE_NAME: autotrace-ui

@@ -37,8 +37,8 @@ const App = () => {
                 <Route exact path='/Trace' element={<Trace />} />
                 <Route exact path='/Transfer' element={<Transfer />} />
                 <Route exact path='/Receive' element={<Receive />} />
-                <Route exacte path='/RepairRequest' element={<RepairRequest />} />
-                <Route exacte path='/RepairResponse' element={<RepairResponse />} />
+                <Route exact path='/RepairRequest' element={<RepairRequest />} />
+                <Route exact path='/RepairResponse' element={<RepairResponse />} />
                 <Route path='*' element={<Home />} />
               </Routes>
             </div>
