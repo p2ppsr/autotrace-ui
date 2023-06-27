@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useStyles from './trace-style'
 import { Button, Grid, Typography, TextField, Container, Accordion, AccordionSummary, AccordionDetails, LinearProgress, Alert, AlertTitle, Collapse } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { AutoTrace } from 'babbage-autotrace'
+import { AutoTrace } from '@cwi/autotrace'
 import Renderer from '../Renderer'
 
 const autoTrace = new AutoTrace()
