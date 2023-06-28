@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '1.5em'
   },
   background: {
-    backgroundImage: 'url(/images/registerBKG.png)',
+    backgroundImage: 'url(/images/background.png)',
     backgroundOrigin: 'border-box',
     backgroundAttachment: 'fixed',
     backgroundRepeat: 'no-repeat',

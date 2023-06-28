@@ -31,7 +31,6 @@ const Receive = () => {
         setCollapsed(true)
       }
     } catch (error) {
-      console.error(error)
       setAlertSeverity('error')
       setMessage(error.message || 'Something went wrong')
       setCollapsed(true)
