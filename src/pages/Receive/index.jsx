@@ -3,7 +3,7 @@ import useStyles from './receive-style'
 import { Grid, Typography, Container, TextField, Accordion, AccordionSummary, AccordionDetails, Alert, AlertTitle, Collapse, LinearProgress } from '@mui/material'
 import Button from '@mui/material/Button'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { AutoTrace } from '@cwi/autotrace'
+import { AutoTrace, ATEvent } from '@cwi/autotrace'
 import Renderer from '../Renderer'
 
 const autoTrace = new AutoTrace()
@@ -20,19 +20,33 @@ const Receive = () => {
 
   const receiveVehicle = async () => {
     setLoading(true)
+
+    const receiveDoc = {
+      VIN,
+      sender
+    }
+
+    const event = new ATEvent(
+      crypto.randomUUID(),
+      'ReceiveTitle',
+      'Receive a new vehicle',
+      Date.now().toString(),
+      JSON.stringify(receiveDoc)
+    )
+
     try {
       let receiveStatus = false
-      receiveStatus = await autoTrace.receive(VIN, sender)
+      receiveStatus = await autoTrace.receive(VIN, event, sender)
       if (receiveStatus == undefined) {
         const vehicleHistory = await autoTrace.trace(VIN)
-        setEvents(vehicleHistory.events)
+        setEvents(vehicleHistory)
         setAlertSeverity('success')
         setMessage('Success')
         setCollapsed(true)
       }
     } catch (error) {
       setAlertSeverity('error')
-      setMessage(error.message || 'Something went wrong')
+      setMessage('Something went wrong')
       setCollapsed(true)
     } finally {
       setLoading(false)

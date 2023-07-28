@@ -20,7 +20,7 @@ const Trace = () => {
     setLoading(true)
     try {
       const vehicleHistory = await autoTrace.trace(VIN)
-      setEvents(vehicleHistory.events)
+      setEvents(vehicleHistory)
       if (vehicleHistory) {
         setAlertSeverity('success')
         setMessage('Success')

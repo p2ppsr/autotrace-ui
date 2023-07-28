@@ -36,7 +36,7 @@ const Register = () => {
 
     try {
       let registerStatus = false
-      registerStatus = await autoTrace.register(VIN, event, registrationDoc)
+      registerStatus = await autoTrace.register(VIN, event)
       if (registerStatus == undefined) {
         setAlertSeverity('success')
         setMessage('Success')

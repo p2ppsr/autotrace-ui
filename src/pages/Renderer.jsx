@@ -11,8 +11,8 @@ export default ({ content }) => {
 
   return (
     <div>
-      {Object.entries(parsed).map(([k, v]) => (
-        <p style={{ display: 'inline', paddingRight: '2em' }}><b>{k}</b>:&nbsp;{v}</p>
+      {Object.entries(parsed).map(([k, v], i) => (
+        <p key={i} style={{ display: 'inline', paddingRight: '2em' }}><b>{k}</b>:&nbsp;{v}</p>
       ))}
     </div>
   )
