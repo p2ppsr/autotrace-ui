@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@babbage/react-prompt": "^0.2.10",
-    "@cwi/autotrace": "^0.1.5",
+    "@cwi/autotrace": "^0.1.6",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
