@@ -14,7 +14,6 @@ ReactDOM.render(
     appImages={[
       '/images/autoTraceLogo.png'
     ]}
-    supportedMetaNet='universal'
   >
     <App />
   </BabbagePrompt>,
