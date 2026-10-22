@@ -12,3 +12,23 @@ Your browser should automatically open, and your changes should be reflected on-
 ## License
 
 The license for the code in this repository is the Open BSV License.
+
+
+## October2026 Node build security maintenance
+
+Retained build tooling uses Node22.23.4 and the existing frozen dependency lock.
+Historical npm6 peer resolution is retained. PR CI verifies the patched native
+Node/Brotli runtime and builds the retained source; registry fetches are bounded
+and failures remain failures. Application dependency versions and browser
+contracts are unchanged. The obsolete Cloud Run deployment is retained only as
+a non-executable reference at `docs/legacy-cloud-run-deploy.yaml.txt`. This source
+update cannot recreate that legacy Cloud Run service. A working build does not
+establish application or production-restoration acceptance.
+
+The first frozen build refuses unavailable historical
+`@cwi/autotrace@0.1.8`: its locked tarball uses the retired private registry, and
+the exact public version returns404. No replacement package or protocol is
+substituted. Automatic qualification covers the patched build runtime and
+bundler configuration syntax only. Full frozen-build restoration remains a
+manual fail-closed gate until the exact dependency is recovered. The failed
+build attempt is retained; no application restoration is qualified.

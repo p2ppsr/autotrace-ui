@@ -1,0 +1,22 @@
+name: Archival patched build runtime
+on:
+  pull_request:
+  push:
+    branches: [master, main, production]
+permissions:
+  contents: read
+jobs:
+  runtime-and-source-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.23.4'
+      - name: Verify patched build runtime
+        run: node -e "const a=require('node:assert/strict'),z=require('node:zlib');a.equal(process.version,'v22.23.4');a.equal(z.brotliDecompressSync(z.brotliCompressSync(Buffer.from('security'))).toString(),'security');console.log(process.version)"
+      - name: Check retained bundler configuration syntax
+        run: |
+          set -euo pipefail
+          for file in webpack.*.js; do node --check "$file"; done
